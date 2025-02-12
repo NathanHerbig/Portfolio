@@ -1,0 +1,16 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor-specific files
+.vscode/
+*.log
+*.tmp
+
+# Ignore build files (if you use a build tool later)
+dist/
+build/
+
+# Ignore npm dependencies (if you install any later)
+node_modules/
+package-lock.json
