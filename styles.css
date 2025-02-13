@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 15;
     font-family: 'Montserrat', sans-serif;
     background-color: #121212;
     color: #fff;
@@ -44,61 +44,87 @@ body {
 /* Header Styling */
 header {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;  /* Reduced padding to minimize height */
-    background: rgba(0, 0, 0, 0.6);
-    position: fixed;
+    flex-direction: column; /* Stack name and nav vertically */
+    align-items: center; /* Center everything */
+    text-align: center;
+    padding: 20px 0;
+    background: rgb(0, 0, 0);
     width: 100%;
+    position: fixed;
     top: 0;
     left: 0;
-    height: auto;  /* Adjust height dynamically */
+    z-index: 1000; /* Keep navbar on top */
 }
+
+
 
 
 .name {
     font-size: 24px;
     font-weight: 700;
 }
+/* Style for Name */
+.name-container {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.9); /* Matches navbar */
+}
+
+.site-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
 
 /* Navigation Menu */
-
-nav ul {
-    list-style: none;
+nav {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 0;
-    margin: 0;  /* Ensure no extra spacing */
-}
-
-
-
-nav ul li {
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    position: relative; /* Avoid conflict with header */
+    background: transparent;
+    padding: 0;
 }
 
+
+/* NAV MENU */
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+/* NAV LINKS */
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: white;
     font-weight: 300;
     display: block;
     padding: 10px 15px;
     transition: background 0.3s, color 0.3s;
 }
 
-nav ul li a:hover,
-nav ul li a:focus {
+nav ul li a:hover {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     color: #00c3ff;
 }
+
+/* WEATHER BUTTONS FIX */
 .weather-buttons {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-left: auto; /* Pushes buttons to the right */
+    position: absolute;
+    right: 20px; /* Keeps buttons inside navbar */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically centers buttons */
 }
+
 
 .weather-btn {
     background: none;
@@ -107,7 +133,32 @@ nav ul li a:focus {
     color: white;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+/* Tooltip Styling */
+.weather-btn {
+    position: relative;
+}
+
+.weather-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%; /* Places tooltip above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.weather-btn:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+    visibility: visible;
 }
 
 .weather-btn:hover {
@@ -117,10 +168,11 @@ nav ul li a:focus {
 
 
 
+
 /* Sections */
 section {
     padding: 50px 20px;
-    margin: 20px auto; /* Ensures spacing between sections */
+    margin: 100px auto; /* Ensures spacing between sections */
     display: block; /* Ensures normal document flow */
     position: relative; /* Prevents it from being forced off-screen */
 }

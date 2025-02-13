@@ -76,7 +76,7 @@ updateWind();
 // Create particles
 function createParticles(type) {
     particles = [];
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 100; i++) {
         particles.push(new Particle(type));
     }
 }
