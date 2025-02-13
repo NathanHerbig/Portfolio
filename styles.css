@@ -62,6 +62,7 @@ header {
 }
 
 /* Navigation Menu */
+
 nav ul {
     list-style: none;
     display: flex;
@@ -81,15 +82,39 @@ nav ul li a {
     text-decoration: none;
     color: #fff;
     font-weight: 300;
-    display: block;  /* Makes links take full width */
+    display: block;
     padding: 10px 15px;
-    transition: 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
-nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2); /* Highlight effect */
+nav ul li a:hover,
+nav ul li a:focus {
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
+    color: #00c3ff;
 }
+.weather-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto; /* Pushes buttons to the right */
+}
+
+.weather-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.weather-btn:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
 
 
 /* Sections */
